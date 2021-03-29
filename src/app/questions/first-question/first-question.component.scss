@@ -1,0 +1,37 @@
+.relative {
+  position: relative;
+  height: 700px;
+
+  .flex {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    height: 500px;
+
+    .question {
+      font-weight: 600;
+      font-size: 30px;
+      padding-bottom: 50px;
+    }
+  }
+
+  .absolute {
+    position: absolute;
+    top:200px;
+    right: 0;
+  }
+}
+
+.books {
+  margin-left: 20px;
+  overflow: scroll;
+  height: 400px;
+}
+
+.error {
+  color: #f44336;
+  font-size: 16px;
+  font-weight: 700;
+}

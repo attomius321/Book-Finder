@@ -1,0 +1,203 @@
+
+<div [formGroup]="form">
+  <div style="display: flex; justify-content: center">
+    <div style="width: 1200px">
+      <app-wizard [(activeIndex)]="index">
+        <app-wizard-tab [label]="'First question'">
+          <div class="relative">
+
+            <div class="flex">
+                <div class="question">
+                  Tell us your age
+                </div>
+                <div>
+                  <mat-form-field appearance="fill">
+                    <input matInput formControlName="age">
+                  </mat-form-field>
+                  <div *ngIf="this.form.controls['age'].invalid && (this.form.controls['age'].dirty || this.form.controls['age'].touched)"
+                       class="error">
+                    12+ !
+                  </div>
+                </div>
+            </div>
+
+            <div style="position: absolute; bottom: 0; right: 40px">
+              <button mat-raised-button color="primary" (click)="nextPage()">Next</button>
+            </div>
+          </div>
+        </app-wizard-tab>
+
+        <app-wizard-tab [label]="'Second question'">
+          <div class="relative">
+
+            <div class="flex">
+              <div class="question">
+                Type your price range (in RON)
+              </div>
+              <div>
+                <mat-form-field appearance="fill" style="padding-right: 30px">
+                  <mat-label>Price start</mat-label>
+                  <input matInput formControlName="priceStart">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Price end</mat-label>
+                  <input matInput formControlName="priceEnd">
+                </mat-form-field>
+              </div>
+              <div *ngIf="this.form.controls['priceStart'].invalid && (this.form.controls['priceStart'].dirty || this.form.controls['priceStart'].touched)"
+                   class="error">
+                Min: 0; Max: 600
+              </div>
+              <div *ngIf="this.form.controls['priceEnd'].invalid && (this.form.controls['priceEnd'].dirty || this.form.controls['priceEnd'].touched)"
+                   class="error">
+                Min: 0; Max: 600
+              </div>
+            </div>
+
+            <div style="position: absolute; bottom: 0; left: 40px">
+              <button mat-raised-button color="primary" (click)="back()">Back</button>
+            </div>
+            <div style="position: absolute; bottom: 0; right: 40px">
+              <button mat-raised-button color="primary" (click)="nextPage()">Next</button>
+            </div>
+          </div>
+        </app-wizard-tab>
+
+        <app-wizard-tab [label]="'Third question'">
+          <div  class="relative">
+
+            <div class="flex">
+              <div class="question">
+                Release year :
+              </div>
+              <div>
+                <mat-form-field appearance="fill" style="padding-right: 30px">
+                  <mat-label>Start range</mat-label>
+                  <input matInput formControlName="releaseStart">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>End range</mat-label>
+                  <input matInput formControlName="releaseEnd">
+                </mat-form-field>
+              </div>
+              <div *ngIf="this.form.controls['releaseStart'].invalid && (this.form.controls['releaseStart'].dirty || this.form.controls['releaseStart'].touched)"
+                   class="error">
+                Min: 1900; Max: 2021
+              </div>
+              <div *ngIf="this.form.controls['releaseEnd'].invalid && (this.form.controls['releaseEnd'].dirty || this.form.controls['releaseEnd'].touched)"
+                   class="error">
+                Min: 1900; Max: 2021
+              </div>
+            </div>
+
+            <div style="position: absolute; bottom: 0; left: 40px">
+              <button mat-raised-button color="primary" (click)="back()">Back</button>
+            </div>
+            <div style="position: absolute; bottom: 0; right: 40px">
+              <button mat-raised-button color="primary" (click)="nextPage()">Next</button>
+            </div>
+          </div>
+        </app-wizard-tab>
+
+        <app-wizard-tab [label]="'Fourth question'">
+          <div class="relative">
+
+            <div class="flex">
+              <div class="question">
+                Number of pages :
+              </div>
+              <div>
+                <mat-form-field appearance="fill" style="padding-right: 30px">
+                  <mat-label>Start range</mat-label>
+                  <input matInput formControlName="pagesStart">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>End range</mat-label>
+                  <input matInput formControlName="pagesEnd">
+                </mat-form-field>
+              </div>
+              <div *ngIf="this.form.controls['pagesStart'].invalid && (this.form.controls['pagesStart'].dirty || this.form.controls['pagesStart'].touched)"
+                   class="error">
+                Min: 200; Max: 600
+              </div>
+              <div *ngIf="this.form.controls['pagesEnd'].invalid && (this.form.controls['pagesEnd'].dirty || this.form.controls['pagesEnd'].touched)"
+                   class="error">
+                Min: 200; Max: 600
+              </div>
+            </div>
+
+            <div style="position: absolute; bottom: 0; left: 40px">
+              <button mat-raised-button color="primary" (click)="back()">Back</button>
+            </div>
+            <div style="position: absolute; bottom: 0; right: 40px">
+              <button mat-raised-button color="primary" (click)="nextPage()">Next</button>
+            </div>
+          </div>
+        </app-wizard-tab>
+
+        <app-wizard-tab [label]="'Fifth question'">
+          <div class="relative">
+
+            <div class="flex">
+              <div class="question">
+                Select your category
+              </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-select formControlName="category">
+                    <mat-option value="history">History</mat-option>
+                    <mat-option value="science">Science Fiction</mat-option>
+                    <mat-option value="crime">Crime & Thrillers</mat-option>
+                    <mat-option value="romance">Romance</mat-option>
+                    <mat-option value="art">Art & Photography</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div style="position: absolute; bottom: 0; left: 40px">
+              <button mat-raised-button color="primary" (click)="back()">Back</button>
+            </div>
+            <div style="position: absolute; bottom: 0; right: 40px">
+              <button mat-raised-button color="primary" (click)="nextPage()">Next</button>
+            </div>
+          </div>
+        </app-wizard-tab>
+
+        <app-wizard-tab [label]="'Results'">
+          <div class="relative">
+
+            <div class="flex">
+              <div class="question">
+                What we thinks is a good choise for you:
+              </div>
+              <div class="books">
+                <div style="display: grid;grid-column-gap: 50px;grid-template-columns: auto auto auto;">
+                  <ng-container *ngIf="results.length; else noResults">
+                    <div *ngFor="let book of results">
+                      <div style="display: flex; flex-direction: column; margin-bottom: 20px">
+                        <span style="font-weight: 700; font-size: 24px">{{book.title}}</span>
+                        <span>by {{book.author}}</span>
+                        <span>{{book.description}}</span>
+                      </div>
+                    </div>
+                  </ng-container>
+
+                  <ng-template #noResults>
+                    <div>We can't thind any books for you</div>
+                  </ng-template>
+                </div>
+              </div>
+
+            </div>
+
+            <div style="position: absolute; bottom: 0; left: 40px">
+              <button mat-raised-button color="primary" (click)="back()">Back</button>
+            </div>
+          </div>
+        </app-wizard-tab>
+
+      </app-wizard>
+    </div>
+  </div>
+</div>

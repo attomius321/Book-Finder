@@ -1,0 +1,31 @@
+<div class="wizard-container" [ngClass]="{'fullscreen' : fullscreen, 'medium-size' : !fullscreen}">
+  <div class="wizard">
+
+    <div class="wizard-menu">
+      <ol>
+        <li *ngFor="let tab of tabs; index as i; last as isLast"
+            (click)="(isEdit || activeIndex > i) ? setIndex(i) : null"
+            [ngClass]="{active: activeIndex===i, last: isLast, clickable: (isEdit || activeIndex > i)}">
+          {{ tab.label }}
+        </li>
+      </ol>
+    </div>
+
+
+    <div class="wizard-content">
+
+      <div *ngFor="let tab of tabs; let i = index" class="tab-pane" [ngClass]="{'display': activeIndex === i}">
+        <div class="scrollable-wrapper">
+          <div class="scrollable">
+            <div class="card " *ngIf="activeIndex === i">
+              <ng-container *ngTemplateOutlet="tab.template"></ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
