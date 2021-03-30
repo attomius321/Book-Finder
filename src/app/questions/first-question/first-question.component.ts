@@ -23,15 +23,17 @@ export class FirstQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this._fb.group({
-      age: new FormControl(null, Validators.min(12)),
-      category: new FormControl(null),
-      priceStart: new FormControl(null, [Validators.min(0), Validators.max(600)]),
-      priceEnd: new FormControl(null, [Validators.min(0), Validators.max(600)]),
-      releaseStart: new FormControl(null, [Validators.min(1900), Validators.max(2021)]),
-      releaseEnd: new FormControl(null, [Validators.min(1900), Validators.max(2021)]),
-      pagesStart: new FormControl(null, [Validators.min(200), Validators.max(600)]),
-      pagesEnd: new FormControl(null, [Validators.min(200), Validators.max(600)])
+      age: new FormControl(null, [Validators.required, Validators.min(12)]),
+      category: new FormControl(null, Validators.required),
+      priceStart: new FormControl(null, [Validators.required, Validators.min(0), Validators.max(600)]),
+      priceEnd: new FormControl(null, [Validators.required, Validators.min(0), Validators.max(600)]),
+      releaseStart: new FormControl(null, [Validators.required, Validators.min(1900), Validators.max(2021)]),
+      releaseEnd: new FormControl(null, [Validators.required, Validators.min(1900), Validators.max(2021)]),
+      pagesStart: new FormControl(null, [Validators.required, Validators.min(200), Validators.max(600)]),
+      pagesEnd: new FormControl(null, [Validators.required, Validators.min(200), Validators.max(600)])
     });
+
+    this.form.markAllAsTouched();
 
     this.initializeArray();
 
@@ -57,6 +59,8 @@ export class FirstQuestionComponent implements OnInit {
     })
     console.log(this.results);
   }
+
+  condition(){}
 
   back(){
     this.index >0 ? this.index-- : null;

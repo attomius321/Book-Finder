@@ -8,7 +8,7 @@
 
             <div class="flex">
                 <div class="question">
-                  Tell us your age
+                  Tell us your age :
                 </div>
                 <div>
                   <mat-form-field appearance="fill">
@@ -32,7 +32,7 @@
 
             <div class="flex">
               <div class="question">
-                Type your price range (in RON)
+                Type your price range (in RON) :
               </div>
               <div>
                 <mat-form-field appearance="fill" style="padding-right: 30px">
@@ -44,11 +44,8 @@
                   <input matInput formControlName="priceEnd">
                 </mat-form-field>
               </div>
-              <div *ngIf="this.form.controls['priceStart'].invalid && (this.form.controls['priceStart'].dirty || this.form.controls['priceStart'].touched)"
-                   class="error">
-                Min: 0; Max: 600
-              </div>
-              <div *ngIf="this.form.controls['priceEnd'].invalid && (this.form.controls['priceEnd'].dirty || this.form.controls['priceEnd'].touched)"
+              <div *ngIf="(this.form.controls['priceStart'].invalid && (this.form.controls['priceStart'].dirty || this.form.controls['priceStart'].touched)) ||
+              (this.form.controls['priceEnd'].invalid && (this.form.controls['priceEnd'].dirty || this.form.controls['priceEnd'].touched))"
                    class="error">
                 Min: 0; Max: 600
               </div>
@@ -80,11 +77,8 @@
                   <input matInput formControlName="releaseEnd">
                 </mat-form-field>
               </div>
-              <div *ngIf="this.form.controls['releaseStart'].invalid && (this.form.controls['releaseStart'].dirty || this.form.controls['releaseStart'].touched)"
-                   class="error">
-                Min: 1900; Max: 2021
-              </div>
-              <div *ngIf="this.form.controls['releaseEnd'].invalid && (this.form.controls['releaseEnd'].dirty || this.form.controls['releaseEnd'].touched)"
+              <div *ngIf="(this.form.controls['releaseStart'].invalid && (this.form.controls['releaseStart'].dirty || this.form.controls['releaseStart'].touched)) ||
+              (this.form.controls['releaseEnd'].invalid && (this.form.controls['releaseEnd'].dirty || this.form.controls['releaseEnd'].touched))"
                    class="error">
                 Min: 1900; Max: 2021
               </div>
@@ -116,11 +110,8 @@
                   <input matInput formControlName="pagesEnd">
                 </mat-form-field>
               </div>
-              <div *ngIf="this.form.controls['pagesStart'].invalid && (this.form.controls['pagesStart'].dirty || this.form.controls['pagesStart'].touched)"
-                   class="error">
-                Min: 200; Max: 600
-              </div>
-              <div *ngIf="this.form.controls['pagesEnd'].invalid && (this.form.controls['pagesEnd'].dirty || this.form.controls['pagesEnd'].touched)"
+              <div *ngIf="(this.form.controls['pagesStart'].invalid && (this.form.controls['pagesStart'].dirty || this.form.controls['pagesStart'].touched)) ||
+              (this.form.controls['pagesEnd'].invalid && (this.form.controls['pagesEnd'].dirty || this.form.controls['pagesEnd'].touched))"
                    class="error">
                 Min: 200; Max: 600
               </div>
@@ -140,7 +131,7 @@
 
             <div class="flex">
               <div class="question">
-                Select your category
+                Select your category :
               </div>
               <div>
                 <mat-form-field appearance="fill">
@@ -159,7 +150,7 @@
               <button mat-raised-button color="primary" (click)="back()">Back</button>
             </div>
             <div style="position: absolute; bottom: 0; right: 40px">
-              <button mat-raised-button color="primary" (click)="nextPage()">Next</button>
+              <button mat-raised-button color="primary" [disabled]="this.form.invalid" (click)="nextPage()">Show results</button>
             </div>
           </div>
         </app-wizard-tab>
@@ -169,7 +160,7 @@
 
             <div class="flex">
               <div class="question">
-                What we thinks is a good choise for you:
+                What we think is a good choice for you:
               </div>
               <div class="books">
                 <div style="display: grid;grid-column-gap: 50px;grid-template-columns: auto auto auto;">
@@ -184,7 +175,7 @@
                   </ng-container>
 
                   <ng-template #noResults>
-                    <div>We can't thind any books for you</div>
+                    <div>We can't find any books for you</div>
                   </ng-template>
                 </div>
               </div>

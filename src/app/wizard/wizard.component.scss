@@ -23,7 +23,7 @@
     box-shadow: 0 0 10px 0px #868686 !important;
     min-width: 240px;
     width: 240px;
-    background: #3f51b5;
+    background: #673ab7;
     height: auto;
 
     ol {
@@ -58,7 +58,7 @@
 
         &.active::before{
           background: white;
-          border: 2px solid #3f51b5;
+          border: 2px solid #673ab7;
           box-shadow:
             0 0 0 2px #FFF;
         }
@@ -68,7 +68,7 @@
           display: block;
           height: 24px;
           width: 24px;
-          background: #3f51b5;
+          background: #673ab7;
           position: absolute;
           top: 6px;
           left: -25px;
@@ -92,7 +92,7 @@
           color: #FFF;
 
           &::marker {
-            color: #3f51b5;
+            color: #673ab7;
           }
         }
 

@@ -4,7 +4,7 @@
     <div class="wizard-menu">
       <ol>
         <li *ngFor="let tab of tabs; index as i; last as isLast"
-            (click)="(isEdit || activeIndex > i) ? setIndex(i) : null"
+            (click)="!isLast ? setIndex(i) : null"
             [ngClass]="{active: activeIndex===i, last: isLast, clickable: (isEdit || activeIndex > i)}">
           {{ tab.label }}
         </li>
